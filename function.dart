@@ -1,13 +1,27 @@
-String sayHello(String name) {
-  return "Hello $name nice to meet you!";
-}
+String sayHello({
+  String name = 'anon',
+  int age = 99,
+  String country = 'South Korea',
+}) =>
+    "Hello $name, you are $age, and you from $country";
 
-String fatArrowSayHello(String name) => "Hello $name nice to meet you!";
-
-num plus(num a, num b) => a + b;
+String sayHello2({
+  required String name,
+  required int age,
+  required String country,
+}) =>
+    "Hello $name, you are $age, and you from $country";
 
 void main() {
-  print(sayHello("deok"));
-  print(fatArrowSayHello("deok"));
-  print(plus(3, 5));
+  print(sayHello(
+    name: 'nico',
+    country: 'germany',
+    age: 12,
+  ));
+
+  print(sayHello2(
+    age: 12,
+    country: 'ciciic',
+    name: 'lalala',
+  ));
 }
