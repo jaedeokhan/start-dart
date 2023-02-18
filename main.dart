@@ -1,3 +1,7 @@
 void main() {
-  print('hello world');s
+  var localVar = '니꼬';
+  localVar = 'nico';
+
+  String classAndPropertyVar = '니꼬';
+  classAndPropertyVar = 'nico';
 }
