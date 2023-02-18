@@ -1,27 +1,31 @@
-String sayHello({
-  String name = 'anon',
-  int age = 99,
-  String country = 'South Korea',
-}) =>
+String sayHello(String name, String country, int age) =>
     "Hello $name, you are $age, and you from $country";
 
-String sayHello2({
+String namedParametesRequiredSayHello({
   required String name,
-  required int age,
   required String country,
+  required int age,
 }) =>
     "Hello $name, you are $age, and you from $country";
 
+String namedParametesDefaultSayHello({
+  String name = 'deok',
+  String country = 'South Korea',
+  int age = 20,
+}) =>
+    "Hello $name, you are $age, and you from $country";
+
+// Position Parameters VS Named Parameters
+// Position Parameters는 파라미터의 위치를 지켜야 한다.
+// Named Parameters는 위치를 지키지 않아도 되고 유용 -> null safety라 required, default로 대처
 void main() {
-  print(sayHello(
+  print(sayHello('nico', 'cuba', 12));
+
+  print(namedParametesRequiredSayHello(
     name: 'nico',
-    country: 'germany',
     age: 12,
+    country: 'cc',
   ));
 
-  print(sayHello2(
-    age: 12,
-    country: 'ciciic',
-    name: 'lalala',
-  ));
+  print(namedParametesDefaultSayHello());
 }
