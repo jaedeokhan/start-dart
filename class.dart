@@ -11,24 +11,39 @@ class Player {
     required this.age,
   });
 
+  // Named Constructors 방법
+  Player.createBluePlayer({
+    required String name,
+    required int age,
+  })  : this.age = age,
+        this.name = name,
+        this.team = 'blue',
+        this.xp = 0;
+
+  // Position Constructors 방법
+  Player.createRedPlayer(
+    String name,
+    int age,
+  )   : this.age = age,
+        this.name = name,
+        this.team = 'red',
+        this.xp = 0;
+
   void sayHello() {
-    print("Hi my name is $name");
+    print(
+        "Hi my name is $name, and I'm age $age, and my team color $team, my xp $xp");
   }
 }
 
 void main() {
-  var player = Player(
+  var bluePlayer = Player.createBluePlayer(
     name: 'deok',
-    xp: 1500,
-    team: 'red',
     age: 12,
   );
-  player.sayHello();
-  var player2 = Player(
-    xp: 2000,
-    name: 'duck',
-    age: 12,
-    team: 'blue',
+  var redPlayer = Player.createRedPlayer(
+    'duck',
+    12,
   );
-  player2.sayHello();
+  bluePlayer.sayHello();
+  redPlayer.sayHello();
 }
