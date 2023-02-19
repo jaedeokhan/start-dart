@@ -1,17 +1,15 @@
 class Player {
-  // late final String name;
-  // late int xp;
-
-  // Player(String name, int xp) {
-  //   this.name = name;
-  //   this.xp = xp;
-  // }
-
-  // late를 사용하지 않고 생성자를 더 간단하게 사용하는 방법
   final String name;
   int xp;
+  String team;
+  int age;
 
-  Player(this.name, this.xp);
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
 
   void sayHello() {
     print("Hi my name is $name");
@@ -19,8 +17,18 @@ class Player {
 }
 
 void main() {
-  var player = Player('deok', 1500);
+  var player = Player(
+    name: 'deok',
+    xp: 1500,
+    team: 'red',
+    age: 12,
+  );
   player.sayHello();
-  var player2 = Player('duck', 2000);
+  var player2 = Player(
+    xp: 2000,
+    name: 'duck',
+    age: 12,
+    team: 'blue',
+  );
   player2.sayHello();
 }
