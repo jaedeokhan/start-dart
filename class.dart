@@ -1,42 +1,34 @@
-abstract class Human {
-  void walk();
+class Strong {
+  final double strengthLevel = 1500.99;
 }
 
-enum Team { red, blue }
-
-enum XPLevel { beginner, medium, pro }
-
-class Player extends Human {
-  String name;
-  XPLevel xp;
-  Team team;
-
-  Player({required this.name, required this.xp, required this.team});
-
-  void sayHello() {
-    print("Hi my name is $name, my team color $team, my xp $xp");
-  }
-
-  void walk() {
-    print('im walking');
+class QuickRunner {
+  void runQuick() {
+    print('ruuuuuuuun!');
   }
 }
 
-class Coach extends Human {
-  void walk() {
-    print("the coach is walking");
-  }
+class Tall {
+  final double height = 1.99;
 }
+
+enum Team { blue, red }
+
+class Player with Strong, QuickRunner, Tall {
+  final Team team;
+
+  Player({
+    required this.team,
+  });
+}
+
+class Horse with Strong, QuickRunner {}
+
+class Kid with QuickRunner {}
 
 void main() {
-  var deok = Player(
-    name: 'deok',
-    xp: XPLevel.medium,
-    team: Team.blue,
+  var player = Player(
+    team: Team.red,
   );
-  var potato = deok
-    ..name = 'potato'
-    ..xp = XPLevel.pro
-    ..team = Team.red
-    ..sayHello();
+  player.runQuick();
 }
