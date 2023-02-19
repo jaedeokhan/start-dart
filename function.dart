@@ -1,6 +1,16 @@
-String sayHello(String name, int age, [String? country = 'cuba']) =>
-    "Hello $name, you are $age years old from $country";
+typedef ListOfInts = List<int>;
+typedef UserInfo = Map<String, String>;
+
+ListOfInts reverseListOfNumbers(ListOfInts list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+String sayHi(UserInfo userInfo) {
+  return "Hi ${userInfo['name']}";
+}
 
 void main() {
-  print(sayHello('deok', 12));
+  print(reverseListOfNumbers([1, 2, 3]));
+  print(sayHi({"name": "deokduck"}));
 }
