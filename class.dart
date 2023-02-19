@@ -1,12 +1,9 @@
 class Player {
-  final String name;
+  String name;
   int xp;
   String team;
 
-  Player.fromJson(Map<String, dynamic> playerJson)
-      : name = playerJson['name'],
-        xp = playerJson['xp'],
-        team = playerJson['team'];
+  Player({required this.name, required this.xp, required this.team});
 
   void sayHello() {
     print("Hi my name is $name, my team color $team, my xp $xp");
@@ -14,26 +11,21 @@ class Player {
 }
 
 void main() {
-  var apiData = [
-    {
-      "name": "deok",
-      "team": "red",
-      "xp": 0,
-    },
-    {
-      "name": "lynn",
-      "team": "red",
-      "xp": 0,
-    },
-    {
-      "name": "dal",
-      "team": "red",
-      "xp": 0,
-    },
-  ];
+  // var deok = Player(name: 'deok', xp: 1500, team: 'blue');
+  // deok.name = 'test';
+  // deok.xp = 1200000;
+  // deok.team = 'red';
 
-  apiData.forEach((playerJson) {
-    var player = Player.fromJson(playerJson);
-    player.sayHello();
-  });
+  // var deok = Player(name: 'deok', xp: 1500, team: 'blue')
+  //   ..name = 'test'
+  //   ..xp = 1200000
+  //   ..team = 'red';
+  // deok.sayHello();
+
+  var deok = Player(name: 'deok', xp: 1500, team: 'blue');
+  var potato = deok
+    ..name = 'potato'
+    ..xp = 1200000
+    ..team = 'red'
+    ..sayHello();
 }
